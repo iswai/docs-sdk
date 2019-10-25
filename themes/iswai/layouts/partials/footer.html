@@ -1,53 +1,27 @@
 <footer class="app-footer bg-dark p-3">
     <div class="container">
-        <div class="d-flex flex-column flex-lg-row justify-content-between my-3">
-            <div>
-                <h3>Availability</h3>
-                <p>
-                    I’m available for hire to consult, design and develop websites. Based in
-                    Spain, I travel regularly to work with clients on location.
-                </p>
-                <p>
-                    <span class="badge badge-light">Available from November 2019</span>
-                </p>
-            </div>
-            <div>
-                <h3>How can I help?</h3>
-                <p>
-                    For work enquiries <a href="mailto:geert.eltink@gmail.com">email</a> me.<br />
-                    Or send me a <a href="https://wa.me/34673288434" aria-label="WhatsApp">message</a>.
-                </p>
-            </div>
-        </div>
-        <div class="d-flex flex-column flex-sm-row justify-content-center my-3 text-center text-md-left">
-            <ul class="list-inline">
-                <li class="list-inline-item mr-3">
-                    <a href="https://twitter.com/geerteltink"
-                        aria-label="Twitter">{{ partial "svg-brand.html" "twitter" }}</a>
-                </li>
-                <li class="list-inline-item mr-3">
-                    <a href="https://www.instagram.com/geerteltink/"
-                        aria-label="Instagram">{{ partial "svg-brand.html" "instagram" }}</a>
-                </li>
-                <li class="list-inline-item mr-3">
-                    <a href="https://github.com/geerteltink"
-                        aria-label="GitHub">{{ partial "svg-brand.html" "github" }}</a>
-                </li>
-                <li class="list-inline-item mr-3">
-                    <a href="mailto:geert.eltink@gmail.com"
-                        aria-label="Email">{{ partial "svg-icon.html" "envelope" }}</a>
-                </li>
-                <li class="list-inline-item mr-3">
-                    <a href="https://wa.me/34673288434"
-                        aria-label="WhatsApp">{{ partial "svg-brand.html" "whatsapp" }}</a>
-                </li>
-                <li class="list-inline-item mr-3">
-                    <a href="/privacy">Privacy</a>
-                </li>
-            </ul>
-            <div>
-                &copy; {{ now.Year }} Geert Eltink
-            </div>
-        </div>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/current/">
+                    Currently v{{ .Site.Params.Versions.Currently }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                    href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/blob/master/LICENSE.md">
+                    Code license MIT
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://creativecommons.org/licenses/by/3.0/">
+                    Docs license CC BY 3.0
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}">
+                    GitHub
+                </a>
+            </li>
+        </ul>
     </div>
 </footer>

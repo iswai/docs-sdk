@@ -1,27 +1,19 @@
-<ul class="nav">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/issues/new?template=bug-report.md&title=docs:%20issue%20with%20{{ .File.Path }}">
-            Report issue
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/edit/master/docs/{{ .File.Path }}">
-            Edit
-        </a>
-    </li>
-    {{ if .GitInfo }}
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
-            Page last modified on {{ .GitInfo.AuthorDate.Format "January 02, 2006 at 3:04 PM PST" }}
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commits/master/docs/{{ .File.Path }}">
-            History
-        </a>
-    </li>
-    {{ end }}
-</ul>
+<div class="text-secondary">
+    <a href="{{ .Permalink }}" class="hide-child link primary-color">
+        “{{ .Title }}”
+    </a> was last updated on {{ .Lastmod.Format "January 2, 2006" }}{{ if .GitInfo }}:
+    <a href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
+        {{ .GitInfo.Subject }} ({{ .GitInfo.AbbreviatedHash }})
+    </a>{{ end }}
+</div>
+
+<div class="mt-2">
+    <a class="btn btn-outline-secondary"
+        href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/edit/master/docs/{{ .File.Path }}">
+        Improve this page
+    </a>
+    <a class="btn btn-outline-secondary"
+        href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/issues/new?template=bug-report.md&title=docs:%20issue%20with%20{{ .File.Path }}">
+        Report issue
+    </a>
+</div>

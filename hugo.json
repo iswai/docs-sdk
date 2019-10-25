@@ -6,6 +6,7 @@
   "enableGitInfo": true,
   "enableInlineShortcodes": true,
   "languageCode": "en-us",
+  "pygmentsCodeFences": true,
   "contentDir": "docs",
   "publishDir": "dist",
   "themesDir": "themes",
@@ -18,7 +19,8 @@
     "organization": "iswai",
     "project": "hugo-test-project",
     "versions": {
-      "current": "1.0",
+      "currently": "1.0.x-dev",
+      "current": "1.0.x-dev",
       "dev": "1.1.x-dev",
       "list": [
         "1.0"

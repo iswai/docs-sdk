@@ -1,0 +1,18 @@
+#TableOfContents {
+    padding-left: 2rem;
+    border-top: 1px solid $gray-200;
+}
+
+#TableOfContents,
+#TableOfContents a {
+    color: $gray-600;
+}
+
+#TableOfContents ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#TableOfContents > ul {
+    margin-top: 1rem;
+}

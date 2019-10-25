@@ -1,8 +1,7 @@
 ---
+title: DevOps
 version: "1.1.x-dev"
 ---
-
-# Getting started {{ .Site.Params.Versions.Dev }}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et malesuada fames ac turpis egestas integer eget. Cursus mattis molestie a iaculis at. Eleifend mi in nulla posuere sollicitudin. Lectus mauris ultrices eros in cursus turpis massa. Morbi tristique senectus et netus et malesuada fames. Gravida quis blandit turpis cursus in hac habitasse platea. Pellentesque id nibh tortor id. Varius morbi enim nunc faucibus a pellentesque sit amet. Lacus laoreet non curabitur gravida arcu ac.
 

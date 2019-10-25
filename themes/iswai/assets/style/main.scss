@@ -1,7 +1,10 @@
 @import 'variables';
 @import '../../../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'app';
+@import 'blockquote';
+@import 'code';
 @import 'icon';
+@import 'toc';
 
 body {
   -webkit-font-smoothing: antialiased;

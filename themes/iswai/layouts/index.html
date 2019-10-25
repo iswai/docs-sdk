@@ -5,9 +5,6 @@
         <header>
             <h1>{{ .Page.Title }}</h1>
         </header>
-        <p class="lead">
-            Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.
-        </p>
         {{ .Content }}
         <div>
             <a href="/current/" class="btn btn-lg btn-outline-primary">Get started</a>
@@ -15,9 +12,6 @@
                 Currently v{{ .Site.Params.Versions.Current }}
             </p>
         </div>
-        <footer>
-            {{ partial "git-info.html" . }}
-        </footer>
     </article>
 </main>
 {{ end }}
