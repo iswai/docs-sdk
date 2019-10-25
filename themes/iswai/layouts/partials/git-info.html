@@ -1,0 +1,27 @@
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/issues/new?template=bug-report.md&title=docs:%20issue%20with%20{{ .File.Path }}">
+            Report issue
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/edit/master/docs/{{ .File.Path }}">
+            Edit
+        </a>
+    </li>
+    {{ if .GitInfo }}
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
+            Page last modified on {{ .GitInfo.AuthorDate.Format "January 02, 2006 at 3:04 PM PST" }}
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commits/master/docs/{{ .File.Path }}">
+            History
+        </a>
+    </li>
+    {{ end }}
+</ul>

@@ -1,0 +1,1 @@
+# Hugo GH pages test

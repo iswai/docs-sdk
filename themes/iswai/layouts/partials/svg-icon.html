@@ -1,0 +1,4 @@
+{{- $fname:=print "node_modules/@fortawesome/fontawesome-free/svgs/regular/" . ".svg" -}}
+{{- $svg:="<svg" -}}
+{{- $class:="<svg class=\"icon\"" -}}
+{{ replace (readFile $fname) $svg $class | safeHTML }}

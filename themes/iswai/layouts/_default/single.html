@@ -1,0 +1,15 @@
+{{ define "title" }} {{ .Title }} &ndash; {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<main class="app-content">
+    <article class="container">
+        <header>
+            <h1>{{ .Page.Title }}</h1>
+        </header>
+        gjdshf;kjsdfhg;kjsdhg
+        {{ .Content }}
+        <footer>
+            {{ partial "git-info.html" . }}
+        </footer>
+    </article>
+</main>
+{{ end }}

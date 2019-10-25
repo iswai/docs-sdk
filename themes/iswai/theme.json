@@ -1,0 +1,13 @@
+{
+  "name": "iswai",
+  "description": "iswai hugo theme",
+  "license": "MIT",
+  "licenselink": "https://github.com/iswai/iswai-hugo-theme/blob/master/LICENSE.md",
+  "homepage": "https://iswai.github.io/",
+  "min_version": "0.41",
+  "enableInlineShortcodes": true,
+  "author": {
+    "name": "Geert Eltink",
+    "homepage": "https://www.elt.ink/"
+  }
+}

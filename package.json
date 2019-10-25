@@ -1,0 +1,35 @@
+{
+  "name": "hugo-test-project",
+  "version": "1.0.0",
+  "description": "github pages with hugo test project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:build": "hugo --gc --config hugo.json",
+    "docs:preview": "hugo server -b http://localhost:1313/ -D -F --gc --config hugo.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iswai/hugo-test-project.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iswai/hugo-test-project/issues"
+  },
+  "homepage": "https://github.com/iswai/hugo-test-project#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "autoprefixer": "^9.7.0",
+    "postcss-cli": "^6.1.3"
+  }
+}
