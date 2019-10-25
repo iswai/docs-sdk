@@ -5,6 +5,9 @@
         <header>
             <h1>{{ .Page.Title }}</h1>
         </header>
+        <div class="highlight">
+            <pre style="color:#f8f8f2;background-color:#272822;"><code class="language-bash" data-lang="bash">composer require {{ .Site.Params.Organization }}/{{ .Site.Params.Project }}</code></pre>
+        </div>
         {{ .Content }}
         <div>
             <a href="/current/" class="btn btn-lg btn-outline-primary">Get started</a>
