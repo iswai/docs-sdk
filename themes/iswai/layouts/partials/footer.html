@@ -3,17 +3,17 @@
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ "/current/" | absURL }}">
-                    Currently v{{ .Site.Params.Versions.Currently }}
+                    Currently v{{ site.Params.Versions.Currently }}
                 </a>
             </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ "/dev/" | absURL }}">
-                                {{ .Site.Params.Versions.Dev }}
+                                {{ site.Params.Versions.Dev }}
                             </a>
                         </li>
             <li class="nav-item">
                 <a class="nav-link"
-                    href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/blob/master/LICENSE.md">
+                    href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/blob/master/LICENSE.md">
                     Code license MIT
                 </a>
             </li>
@@ -23,7 +23,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}">
+                <a class="nav-link" href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}">
                     GitHub
                 </a>
             </li>

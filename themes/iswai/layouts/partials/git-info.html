@@ -2,18 +2,20 @@
     <a href="{{ .Permalink }}" class="hide-child link primary-color">
         “{{ .Title }}”
     </a> was last updated on {{ .Lastmod.Format "January 2, 2006" }}{{ if .GitInfo }}:
-    <a href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
+    <a href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
         {{ .GitInfo.Subject }} ({{ .GitInfo.AbbreviatedHash }})
     </a>{{ end }}
 </div>
 
+{{ if .File }}
 <div class="mt-2">
     <a class="btn btn-sm btn-outline-secondary"
-        href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/edit/master/docs/{{ .File.Path }}">
+        href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/edit/master/docs/{{ .File.Path }}">
         Improve this page
     </a>
     <a class="btn btn-sm btn-outline-secondary"
-        href="https://github.com/{{ .Site.Params.organization }}/{{ .Site.Params.project }}/issues/new?template=bug-report.md&title=docs:%20issue%20with%20{{ .File.Path }}">
+        href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/issues/new?template=bug-report.md&title=docs:%20issue%20with%20{{ .File.Path }}">
         Report issue
     </a>
 </div>
+{{ end }}
