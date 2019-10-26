@@ -11,7 +11,7 @@
   "pygmentsUseClasses": true,
   "pygmentsUseClassic": false,
   "contentDir": "docs",
-  "publishDir": "dist",
+  "publishDir": "build",
   "themesDir": "themes",
   "disableKinds": [
     "categories",

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+PUBLISH_DIR=build
+TARGET_BRANCH=gh-pages
+
+echo -e "\033[0;32mDeleting old content...\033[0m"
+rm -rf $PUBLISH_DIR
+
+echo -e "\033[0;32mChecking out $TARGET_BRANCH....\033[0m"
+git worktree add $PUBLISH_DIR $TARGET_BRANCH
+
+echo -e "\033[0;32mGenerating site...\033[0m"
+hugo --gc --config hugo.json --destination $PUBLISH_DIR --baseURL "/"
+
+echo -e "\033[0;32mDeploying $TARGET_BRANCH branch...\033[0m"
+cd $PUBLISH_DIR &&
+  git add --all &&
+  git commit -m "docs: deploy from hash" &&
+  git push origin $TARGET_BRANCH
+
+echo -e "\033[0;32mCleaning up...\033[0m"
+git worktree remove $PUBLISH_DIR

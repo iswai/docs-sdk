@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PUBLISH_DIR=build
+TARGET_BRANCH=gh-pages
+
+echo -e "\033[0;32mSetting up github pages...\033[0m"
+git checkout --orphan gh-pages
+git reset --hard
+git commit --allow-empty -m "chore: init github pages"
+git checkout master
+rm -rf $TARGET_BRANCH
+
+echo -e "\033[0;32mChecking out $TARGET_BRANCH....\033[0m"
+git worktree add $PUBLISH_DIR $TARGET_BRANCH
