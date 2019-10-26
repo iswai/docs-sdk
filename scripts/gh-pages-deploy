@@ -10,7 +10,7 @@ echo -e "\033[0;32mChecking out $TARGET_BRANCH....\033[0m"
 git worktree add $PUBLISH_DIR $TARGET_BRANCH
 
 echo -e "\033[0;32mGenerating site...\033[0m"
-hugo --gc --config hugo.json --destination $PUBLISH_DIR --baseURL "https://iswai.github.io/hugo-test-project/"
+hugo --gc --config hugo.json --destination $PUBLISH_DIR
 
 echo -e "\033[0;32mDeploying $TARGET_BRANCH branch...\033[0m"
 cd $PUBLISH_DIR &&
