@@ -5,10 +5,71 @@ version: "1.1.x-dev"
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et malesuada fames ac turpis egestas integer eget. Cursus mattis molestie a iaculis at. Eleifend mi in nulla posuere sollicitudin. Lectus mauris ultrices eros in cursus turpis massa. Morbi tristique senectus et netus et malesuada fames. Gravida quis blandit turpis cursus in hac habitasse platea. Pellentesque id nibh tortor id. Varius morbi enim nunc faucibus a pellentesque sit amet. Lacus laoreet non curabitur gravida arcu ac.
 
-Sed felis eget velit aliquet sagittis id consectetur purus. Aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros. Mauris augue neque gravida in fermentum. Nulla aliquet porttitor lacus luctus accumsan tortor. Viverra adipiscing at in tellus. Massa id neque aliquam vestibulum morbi. Mattis enim ut tellus elementum sagittis vitae et leo duis. Tellus in hac habitasse platea dictumst. Etiam non quam lacus suspendisse faucibus. Tellus at urna condimentum mattis pellentesque id nibh tortor id. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Sagittis id consectetur purus ut faucibus pulvinar. Risus ultricies tristique nulla aliquet. Bibendum est ultricies integer quis. Eget mi proin sed libero enim sed.
+```php
+<?php
+/**
+ * @see       https://github.com/zendframework/zend-expressive for the canonical source repository
+ * @copyright Copyright (c) 2015-2018 Zend Technologies USA Inc. (https://www.zend.com)
+ * @license   https://github.com/zendframework/zend-expressive/blob/master/LICENSE.md New BSD License
+ */
 
-Senectus et netus et malesuada fames ac turpis egestas. Adipiscing diam donec adipiscing tristique risus nec feugiat in fermentum. Mauris nunc congue nisi vitae suscipit tellus. Nibh sed pulvinar proin gravida hendrerit. Id porta nibh venenatis cras sed felis. Nulla aliquet enim tortor at auctor. Purus viverra accumsan in nisl nisi scelerisque. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Sed augue lacus viverra vitae congue eu. Et ultrices neque ornare aenean euismod. Felis eget velit aliquet sagittis id consectetur purus ut. Id velit ut tortor pretium viverra suspendisse potenti nullam. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+declare(strict_types=1);
 
-Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Amet tellus cras adipiscing enim eu turpis. Malesuada proin libero nunc consequat interdum varius sit. Ut placerat orci nulla pellentesque dignissim enim sit. Bibendum neque egestas congue quisque egestas. Malesuada bibendum arcu vitae elementum curabitur vitae nunc. Massa ultricies mi quis hendrerit dolor magna eget. Volutpat diam ut venenatis tellus in metus vulputate. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Justo laoreet sit amet cursus. Placerat vestibulum lectus mauris ultrices eros in cursus turpis. Quis vel eros donec ac odio.
+namespace Zend\Expressive;
 
-Elementum pulvinar etiam non quam lacus suspendisse faucibus. Aliquam id diam maecenas ultricies mi eget. A scelerisque purus semper eget duis at. Tempus egestas sed sed risus pretium. A arcu cursus vitae congue mauris rhoncus aenean. Pellentesque elit eget gravida cum sociis. Mattis rhoncus urna neque viverra justo nec ultrices dui. Cursus euismod quis viverra nibh cras pulvinar. Orci porta non pulvinar neque laoreet suspendisse interdum. Nulla facilisi morbi tempus iaculis urna id volutpat.
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\MiddlewareInterface;
+use Psr\Http\Server\RequestHandlerInterface;
+use Zend\Expressive\Router\RouteCollector;
+use Zend\HttpHandlerRunner\RequestHandlerRunner;
+use Zend\Stratigility\MiddlewarePipeInterface;
+
+use function Zend\Stratigility\path;
+
+class Application implements MiddlewareInterface, RequestHandlerInterface
+{
+    /** @var MiddlewareFactory */
+    private $factory;
+
+    /** @var MiddlewarePipeInterface */
+    private $pipeline;
+
+    /** @var RouteCollector */
+    private $routes;
+
+    /** @var RequestHandlerRunner */
+    private $runner;
+
+    public function __construct(
+        MiddlewareFactory $factory,
+        MiddlewarePipeInterface $pipeline,
+        RouteCollector $routes,
+        RequestHandlerRunner $runner
+    ) {
+        $this->factory = $factory;
+        $this->pipeline = $pipeline;
+        $this->routes = $routes;
+        $this->runner = $runner;
+    }
+
+    /**
+     * Proxies to composed pipeline to handle.
+     * {@inheritDocs}
+     */
+    public function handle(ServerRequestInterface $request) : ResponseInterface
+    {
+        return $this->pipeline->handle($request);
+    }
+
+    /**
+     * Run the application.
+     *
+     * Proxies to the RequestHandlerRunner::run() method.
+     */
+    public function run() : void
+    {
+        $this->runner->run();
+    }
+}
+```
