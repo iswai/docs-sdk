@@ -36,6 +36,7 @@ COPY archetypes archetypes
 COPY assets assets
 COPY config config
 COPY layouts layouts
+COPY static static
 COPY .browserslistrc .browserslistrc
 COPY .postcssrc.js .postcssrc.js
 
