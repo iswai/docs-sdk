@@ -1,4 +1,4 @@
-name: docker-container
+name: docker-image
 on:
   pull_request:
     branches:
