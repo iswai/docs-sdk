@@ -1,5 +1,5 @@
 ---
-title: Project name
+title: iswai-docs
 description: Description.
 ---
 

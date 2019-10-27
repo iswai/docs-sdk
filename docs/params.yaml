@@ -1,5 +1,5 @@
 organization: iswai
-project: hugo-test-project
+project: iswai-docs
 current: "1.1"
 develop: "1.0.x-dev"
 versions:
