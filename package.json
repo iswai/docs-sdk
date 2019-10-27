@@ -1,36 +1,24 @@
 {
-  "name": "hugo-test-project",
+  "name": "iswai-docs",
   "version": "1.0.0",
-  "description": "github pages with hugo test project",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "hugo --config hugo.json,docs/config.json",
-    "server": "hugo server -b http://localhost:1313/ --bind 0.0.0.0 --gc --config hugo.json,docs/config.json",
-    "preview": "hugo server -b http://localhost:1313/ --bind 0.0.0.0 -D -F --gc --config hugo.json,docs/config.json"
-  },
+  "description": "Tools for generating docs for the ISWAI organization",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iswai/hugo-test-project.git"
+    "url": "git+https://github.com/iswai/iswai-docs.git"
   },
-  "author": "",
+  "author": "Geert Eltink (https://www.elt.ink/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iswai/hugo-test-project/issues"
+    "url": "https://github.com/iswai/iswai-docs/issues"
   },
-  "homepage": "https://github.com/iswai/hugo-test-project#readme",
+  "homepage": "https://github.com/iswai/iswai-docs#readme",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
-    "popper.js": "^1.16.0"
-  },
-  "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "autoprefixer": "^9.7.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
     "postcss-cli": "^6.1.3"
   }
 }
