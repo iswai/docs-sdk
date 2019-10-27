@@ -9,7 +9,15 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Prepare
+      run: |
+        rm -rf build
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git worktree add build gh-pages
 
     - name: Build
       uses: docker://iswai/iswai-docs:latest
@@ -18,8 +26,8 @@ jobs:
         args: 'build'
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./build
+      run: |
+        cd build
+        git add --all
+        git commit --allow-empty -m "docs: deploy from ${GITHUB_SHA}"
+        git push origin gh-pages
