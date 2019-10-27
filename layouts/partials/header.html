@@ -10,23 +10,26 @@
             {{ $currentPage := . }}
             {{ range site.Menus.main }}
             <li class="nav-item">
-                <a class="nav-link{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}"
-                    href="{{ .URL }}">{{- .Name -}}</a>
+                <a class="nav-link{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}" href="{{ .URL }}">{{- .Name -}}</a>
             </li>
             {{ end }}
             <li class="nav-item dropdown">
                 <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    v4.3
+                    v{{ .Params.version | default site.Params.current }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+                    <a class="dropdown-item {{ if eq $.Params.version site.Params.current }}active{{ end }}" href="{{ "current/" | absURL }}">
+                        Current ({{ site.Params.current }})
+                    </a>
+                    <a class="dropdown-item {{ if eq $.Params.version site.Params.develop }}active{{ end }}" href="{{ "dev/" | absURL }}">
+                        Develop ({{ site.Params.develop }})
+                    </a>
                     {{ range $version := .Site.Params.versions }}
-                    {{ range $key, $val := $version }}
-                    <a class="dropdown-item active" href="{{ ( printf "%s/" $key ) | absURL }}">
-                        {{ if eq $key "current" }}Latest ({{ $val }}){{ else }}v{{ $val }}{{ end }}
+                    <a class="dropdown-item {{ if eq $.Params.version $version }}active{{ end }}" href="{{ ( printf "%s/" $version ) | absURL }}">
+                        v{{ $version }}
                     </a>
                     {{ end }}
-                    {{end}}
                 </div>
             </li>
         </ul>

@@ -1,6 +1,6 @@
 ---
 title: DevOps
-version: "1.0"
+version: "1.1"
 ---
 
 The `devops` cli is created for maintainers. Are you repeatedly typing git
