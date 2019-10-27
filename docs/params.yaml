@@ -1,0 +1,10 @@
+organization: iswai
+project: hugo-test-project
+current: "1.0"
+dev: 1.1.x-dev
+versions:
+  - current: "1.1"
+  - dev: "1.0"
+  - "0.3": "0.3"
+  - "0.2": "0.2"
+  - "0.1": "0.1"

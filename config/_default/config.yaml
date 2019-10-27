@@ -1,0 +1,22 @@
+baseURL: http://localhost:1313/
+title: default-iswai-project
+
+defaultContentLanguage: en
+languageCode: en-us
+
+contentDir: docs
+enableGitInfo: true
+enableInlineShortcodes: true
+
+pygmentsCodeFences: true
+pygmentsOptions: linenos=table
+pygmentsUseClasses: true
+pygmentsUseClassic: false
+
+publishDir: build
+
+disableKinds:
+- taxonomy
+- taxonomyTerm
+- RSS
+- sitemap

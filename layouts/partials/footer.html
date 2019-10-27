@@ -3,14 +3,14 @@
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ "current/" | absURL }}">
-                    Currently v{{ site.Params.Versions.Currently }}
+                    Currently v{{ site.Params.current }}
                 </a>
             </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ "dev/" | absURL }}">
-                                {{ site.Params.Versions.Dev }}
-                            </a>
-                        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ "dev/" | absURL }}">
+                    Dev v{{ site.Params.dev }}
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link"
                     href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/blob/master/LICENSE.md">

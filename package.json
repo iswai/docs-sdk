@@ -8,8 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:build": "hugo --gc --config hugo.json",
-    "docs:preview": "hugo server -b http://localhost:1313/ -D -F --gc --config hugo.json"
+    "build": "hugo --config hugo.json,docs/config.json",
+    "server": "hugo server -b http://localhost:1313/ --bind 0.0.0.0 --gc --config hugo.json,docs/config.json",
+    "preview": "hugo server -b http://localhost:1313/ --bind 0.0.0.0 -D -F --gc --config hugo.json,docs/config.json"
   },
   "repository": {
     "type": "git",

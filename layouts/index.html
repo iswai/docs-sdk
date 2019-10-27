@@ -8,12 +8,11 @@
         <div class="highlight">
             <pre class="chroma"><code class="language-bash" data-lang="bash">$ composer require {{ site.Params.Organization }}/{{ site.Params.Project }}</code></pre>
         </div>
-
         {{ .Content }}
         <div>
             <a href="{{ "current/" | absURL }}" class="btn btn-lg btn-outline-primary my-3">Get started</a>
             <p class="text-muted mb-0">
-                Currently v{{ site.Params.Versions.Current }}
+                Currently v{{ site.Params.Current }}
             </p>
         </div>
     </article>
