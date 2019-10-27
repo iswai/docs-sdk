@@ -1,75 +1,31 @@
 ---
-title: DevOps
+title: iswai-docs
 version: "1.1.x-dev"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et malesuada fames ac turpis egestas integer eget. Cursus mattis molestie a iaculis at. Eleifend mi in nulla posuere sollicitudin. Lectus mauris ultrices eros in cursus turpis massa. Morbi tristique senectus et netus et malesuada fames. Gravida quis blandit turpis cursus in hac habitasse platea. Pellentesque id nibh tortor id. Varius morbi enim nunc faucibus a pellentesque sit amet. Lacus laoreet non curabitur gravida arcu ac.
+This project consists of a collection of tools to generate the documentation
+for the ISWAI organization. It's very opinionated and contains hugo templates
+and css files as we like them.
 
-```php
-<?php
-/**
- * @see       https://github.com/zendframework/zend-expressive for the canonical source repository
- * @copyright Copyright (c) 2015-2018 Zend Technologies USA Inc. (https://www.zend.com)
- * @license   https://github.com/zendframework/zend-expressive/blob/master/LICENSE.md New BSD License
- */
+## Preview documentation
 
-declare(strict_types=1);
+```bash
+# Build documentation into ./build
+docker run --rm -v ${PWD}:/src iswai/iswai-docs build
 
-namespace Zend\Expressive;
+# Preview documentation at http:/localhost:1313/
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs server
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Expressive\Router\RouteCollector;
-use Zend\HttpHandlerRunner\RequestHandlerRunner;
-use Zend\Stratigility\MiddlewarePipeInterface;
+# Preview documentation at http:/localhost:1313/ (including draft and future content)
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs preview
+```
 
-use function Zend\Stratigility\path;
+## Build container locally
 
-class Application implements MiddlewareInterface, RequestHandlerInterface
-{
-    /** @var MiddlewareFactory */
-    private $factory;
+```bash
+# Build container
+docker build -t iswai-docs .
 
-    /** @var MiddlewarePipeInterface */
-    private $pipeline;
-
-    /** @var RouteCollector */
-    private $routes;
-
-    /** @var RequestHandlerRunner */
-    private $runner;
-
-    public function __construct(
-        MiddlewareFactory $factory,
-        MiddlewarePipeInterface $pipeline,
-        RouteCollector $routes,
-        RequestHandlerRunner $runner
-    ) {
-        $this->factory = $factory;
-        $this->pipeline = $pipeline;
-        $this->routes = $routes;
-        $this->runner = $runner;
-    }
-
-    /**
-     * Proxies to composed pipeline to handle.
-     * {@inheritDocs}
-     */
-    public function handle(ServerRequestInterface $request) : ResponseInterface
-    {
-        return $this->pipeline->handle($request);
-    }
-
-    /**
-     * Run the application.
-     *
-     * Proxies to the RequestHandlerRunner::run() method.
-     */
-    public function run() : void
-    {
-        $this->runner->run();
-    }
-}
+# Run container
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai-docs [server|preview|build]
 ```

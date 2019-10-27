@@ -1,8 +1,5 @@
 organization: iswai
 project: iswai-docs
-current: "1.1"
+current: "1.0"
 develop: "1.0.x-dev"
 versions:
-  - "0.3"
-  - "0.2"
-  - "0.1"
