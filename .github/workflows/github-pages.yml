@@ -12,8 +12,8 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Build
-      #uses: docker://iswai/iswai-docs:latest
-      uses: docker://docker.pkg.github.com/iswai/iswai-docs/hugo:latest
+      uses: docker://iswai/iswai-docs:latest
+      #uses: docker://docker.pkg.github.com/iswai/iswai-docs/hugo:latest
       with:
         args: 'build'
 
