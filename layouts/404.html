@@ -1,5 +1,11 @@
+{{ define "title" }} 404 &ndash; {{ site.Title }}{{ end }}
 {{ define "main" }}
-<h1>Nothing Here...</h1>
-<h2 style="font-size: 120px; margin:0;">💩</h2>
-<h3><a href="{{ "/" | absURL }}">Go Home</a></h3>
+<main class="app-content">
+    <article class="container">
+        <header>
+            <h1>Nothing here...</h1>
+        </header>
+        <a href="{{ "/" | absURL }}">Go Home</a>
+    </article>
+</main>
 {{ end }}
