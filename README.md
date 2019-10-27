@@ -1,6 +1,19 @@
 # iswai-docs
 
-## Build container
+## Preview documentation
+
+```bash
+# Build documentation into ./build
+docker run --rm -v ${PWD}:/src iswai/iswai-docs build
+
+# Preview documentation at http:/localhost:1313/
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs server
+
+# Preview documentation at http:/localhost:1313/ (including draft and future content)
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs preview
+```
+
+## Build container locally
 
 ```bash
 # Build container
