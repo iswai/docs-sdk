@@ -76,6 +76,9 @@ if [ "$1" == 'build' ]; then
 
     info "Building documents..."
     hugo --environment production --minify
+
+    info "Setting ownership for build output..."
+    chown -R `stat -c "%u:%g" $SOURCE` $SOURCE/build
     exit 0
 fi
 
