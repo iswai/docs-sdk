@@ -22,9 +22,11 @@
                     <a class="dropdown-item {{ if eq $.Params.version site.Params.current }}active{{ end }}" href="{{ "current/" | absURL }}">
                         Current ({{ site.Params.current }})
                     </a>
+                    {{ if site.Params.develop }}
                     <a class="dropdown-item {{ if eq $.Params.version site.Params.develop }}active{{ end }}" href="{{ "dev/" | absURL }}">
                         Develop ({{ site.Params.develop }})
                     </a>
+                    {{ end }}
                     {{ range $version := .Site.Params.versions }}
                     <a class="dropdown-item {{ if eq $.Params.version $version }}active{{ end }}" href="{{ ( printf "%s/" $version ) | absURL }}">
                         v{{ $version }}
