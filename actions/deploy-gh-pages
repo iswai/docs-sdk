@@ -1,0 +1,57 @@
+#!/bin/bash
+#
+#   - name: Deploy
+#     env:
+#       PERSONAL_ACCESS_TOKEN: ${{ secrets.YOUR_SECRET_PAT }}   * required
+#       PUBLISH_BRANCH: gh-pages                                * optional
+#       PUBLISH_DIR: ./build                                    * optional
+#     run: |
+#       wget https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/deploy-gh-pages
+#       bash ./deploy-gh-pages
+#
+set -e
+
+function print_error() {
+    echo -e "\e[31mERROR: ${1}\e[m"
+    exit 1
+}
+
+function print_info() {
+    echo -e "\e[36mINFO: ${1}\e[m"
+}
+
+function skip() {
+    print_info "No changes detected, skipping deployment"
+    exit 0
+}
+
+PUBLISH_BRANCH="${PUBLISH_BRANCH:-gh-pages}"
+PUBLISH_DIR="${PUBLISH_DIR:-./build}"
+TOKEN="${PERSONAL_ACCESS_TOKEN:-$GITHUB_TOKEN}"
+REMOTE_REPO="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+if [ -z "${TOKEN}" ]; then
+    print_error "Missing env PERSONAL_ACCESS_TOKEN or GITHUB_TOKEN"
+fi
+
+if [ -z "${GITHUB_REPOSITORY}" ]; then
+    print_error "Missing env GITHUB_REPOSITORY"
+fi
+
+print_info "Deploying from ${PUBLISH_DIR}"
+print_info "Deploying ${GITHUB_REPOSITORY} to ${PUBLISH_BRANCH}"
+
+cd "${PUBLISH_DIR}"
+git init
+git checkout --orphan "${PUBLISH_BRANCH}"
+git config user.name "iswai-bot"
+git config user.email "57135024+iswai-bot@users.noreply.github.com"
+git remote rm origin || true
+git remote add origin "${REMOTE_REPO}"
+git add --all
+git commit -m "docs: deploy from ${GITHUB_SHA}" || skip
+git push origin "${PUBLISH_BRANCH}"
+rm -rf .git
+cd ..
+
+print_info "${GITHUB_SHA} deployed successfully"
