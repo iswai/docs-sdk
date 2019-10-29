@@ -29,3 +29,9 @@ docker build -t docs .
 # Run container
 docker run --rm -it -p 1313:1313 -v ${PWD}:/src docs [server|preview|build]
 ```
+
+## Resources
+
+- https://github.com/actions/checkout
+- https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#environment-variables
+- https://help.github.com/en/github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions

@@ -1,37 +1,30 @@
 # docs-sdk
 
-## Preview documentation
+[![github-pages](https://github.com/iswai/docs-sdk/workflows/github-pages/badge.svg)](https://github.com/iswai/docs-sdk/actions)
+[![docker-image](https://github.com/iswai/docs-sdk/workflows/docker-image/badge.svg)](https://github.com/iswai/docs-sdk/actions)
 
-```bash
-# Build documentation into ./build
-docker run --rm -v ${PWD}:/src iswai/docs build
+This project consists of a collection of tools to generate the documentation
+for the ISWAI organization. It's very opinionated and contains hugo templates
+and css files as we like them.
 
-# Preview documentation at http:/localhost:1313/
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs server
+## Bugs and feature requests
 
-# Preview documentation at http:/localhost:1313/ (including draft and future content)
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs preview
-```
+Have a bug or a feature request? Please first read the issue guidelines and search for existing and closed issues.
+If your problem or idea is not addressed yet, please open a new issue.
 
-## Build container locally
+## Contributing
 
-```bash
-# Build container
-docker build -t docs .
+Please read through our contributing guidelines. Included are directions for opening issues, coding standards,
+and notes on development.
 
-# Run container
-docker run --rm -it -p 1313:1313 -v ${PWD}:/src docs [server|preview|build]
-```
+## Documentation
 
-## TODO
+Documentation, included in this repo in the [docs](https://github.com/iswai/docs-sdk/tree/master/docs) directory, is
+built with [Hugo](https://iswai.github.io/iswai-docs/) and publicly hosted on GitHub Pages at
+<https://iswai.github.io/docs-sdk/>.
 
-### Add hugo checksum
+## Copyright and license
 
-    && wget --quiet -P /tmp https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt \
-    && grep "${HUGO_PACKAGE}" "/tmp/hugo_${HUGO_VERSION}_checksums.txt" | sha256sum -c - \
-
-## Resources
-
-- https://github.com/actions/checkout
-- https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#environment-variables
-- https://help.github.com/en/github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
+© 2019 The ISWAI Authors |
+Code released under [MIT License](https://github.com/iswai/docs-sdk/blob/master/LICENSE.md). |
+Documentation distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
