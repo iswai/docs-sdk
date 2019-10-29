@@ -35,9 +35,3 @@ docker run --rm -it -p 1313:1313 -v ${PWD}:/src docs [server|preview|build]
 - https://github.com/actions/checkout
 - https://help.github.com/en/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions#environment-variables
 - https://help.github.com/en/github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
-
-- https://github.com/peaceiris/actions-gh-pages
-- https://github.com/peaceiris/hugo-test-project/tree/master/themes/hugo-iris
-- https://stackoverflow.com/questions/57570355/replace-one-branch-with-current-branch-using-github-actions
-- https://github.com/squidfunk/mkdocs-material
-- http://sangsoonam.github.io/2019/02/08/using-git-worktree-to-deploy-github-pages.html
