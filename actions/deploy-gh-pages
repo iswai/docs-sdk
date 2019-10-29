@@ -38,8 +38,7 @@ if [ -z "${GITHUB_REPOSITORY}" ]; then
     print_error "Missing env GITHUB_REPOSITORY"
 fi
 
-print_info "Deploying from ${PUBLISH_DIR}"
-print_info "Deploying ${GITHUB_REPOSITORY} to ${PUBLISH_BRANCH}"
+print_info "Deploying ${GITHUB_REPOSITORY} from ${PUBLISH_DIR} to ${PUBLISH_BRANCH}"
 
 cd "${PUBLISH_DIR}"
 git init
@@ -50,7 +49,7 @@ git remote rm origin || true
 git remote add origin "${REMOTE_REPO}"
 git add --all
 git commit -m "docs: deploy from ${GITHUB_SHA}" || skip
-git push origin "${PUBLISH_BRANCH}"
+git push origin "${PUBLISH_BRANCH}" --force
 rm -rf .git
 cd ..
 
