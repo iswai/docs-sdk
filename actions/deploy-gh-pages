@@ -43,8 +43,8 @@ print_info "Deploying ${GITHUB_REPOSITORY} from ${PUBLISH_DIR} to ${PUBLISH_BRAN
 cd "${PUBLISH_DIR}"
 git init
 git checkout --orphan "${PUBLISH_BRANCH}"
-git config user.name "iswai-bot"
-git config user.email "57135024+iswai-bot@users.noreply.github.com"
+git config user.name "${GITHUB_ACTOR}"
+git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 git remote rm origin || true
 git remote add origin "${REMOTE_REPO}"
 git add --all
