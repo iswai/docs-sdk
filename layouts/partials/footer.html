@@ -1,11 +1,13 @@
 <footer class="app-footer bg-dark p-3">
     <div class="container">
         <ul class="nav">
+            {{ if site.Params.current }}
             <li class="nav-item">
                 <a class="nav-link" href="{{ "current/" | absURL }}">
                     Currently v{{ site.Params.current }}
                 </a>
             </li>
+            {{ end }}
             <li class="nav-item">
                 <a class="nav-link" href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/blob/master/LICENSE.md">
                     Code license MIT
