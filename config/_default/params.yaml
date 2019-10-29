@@ -1,2 +1,5 @@
 organization: iswai
 project: default-iswai-project
+projects:
+- devops
+- docs-sdk

@@ -7,15 +7,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ site.BaseURL }}">{{ site.Title }}</a>
             </li>
-            {{ $currentPage := . }}
-            {{ range site.Menus.main }}
-            <li class="nav-item">
-                <a class="nav-link{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}" href="{{ .URL }}">{{- .Name -}}</a>
-            </li>
-            {{ end }}
             <li class="nav-item dropdown">
-                <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-projects" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Check out our projects
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-projects">
+                    {{ range $project := .Site.Params.projects }}
+                    <a class="dropdown-item {{ if eq $.Params.project $project }}active{{ end }}"
+                        href="{{ ( printf "/%s/" $project ) | absURL }}">
+                        {{ $project }}
+                    </a>
+                    {{ end }}
+                </div>
+            </li>
+            {{ if site.Params.current }}
+            <li class="nav-item dropdown">
+                <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     v{{ .Params.version | default site.Params.current }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
@@ -34,6 +41,7 @@
                     {{ end }}
                 </div>
             </li>
+            {{ end }}
         </ul>
     </nav>
 </header>
