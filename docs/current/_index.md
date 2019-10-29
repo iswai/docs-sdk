@@ -11,13 +11,13 @@ and css files as we like them.
 
 ```bash
 # Build documentation into ./build
-docker run --rm -v ${PWD}:/src iswai/docs build
+docker run --rm -it -v ${PWD}:/src iswai/docs build
 
 # Preview documentation at http:/localhost:1313/
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs server
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai/docs server
 
 # Preview documentation at http:/localhost:1313/ (including draft and future content)
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs preview
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai/docs preview
 ```
 
 ## Build container locally
