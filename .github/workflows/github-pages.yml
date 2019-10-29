@@ -7,27 +7,22 @@ on:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Prepare
-      run: |
-        rm -rf build
-        git config user.name "${GITHUB_ACTOR}"
-        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git worktree add build gh-pages
-
     - name: Build
-      uses: docker://iswai/iswai-docs:latest
-      #uses: docker://docker.pkg.github.com/iswai/iswai-docs/hugo:latest
+      uses: docker://iswai/docs:latest
+      #uses: docker://docker.pkg.github.com/iswai/docs-sdk/hugo:latest
       with:
         args: 'build'
 
     - name: Deploy
+      env:
+        PERSONAL_TOKEN: ${{ secrets.ISWAI_BOT }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./build
       run: |
-        cd build
-        git add --all
-        git commit --allow-empty -m "docs: deploy from ${GITHUB_SHA}"
-        git push origin gh-pages
+        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.5.1/entrypoint.sh
+        bash ./entrypoint.sh

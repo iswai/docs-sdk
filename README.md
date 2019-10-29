@@ -1,26 +1,26 @@
-# iswai-docs
+# docs-sdk
 
 ## Preview documentation
 
 ```bash
 # Build documentation into ./build
-docker run --rm -v ${PWD}:/src iswai/iswai-docs build
+docker run --rm -v ${PWD}:/src iswai/docs build
 
 # Preview documentation at http:/localhost:1313/
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs server
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs server
 
 # Preview documentation at http:/localhost:1313/ (including draft and future content)
-docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/iswai-docs preview
+docker run --rm -p 1313:1313 -v ${PWD}:/src iswai/docs preview
 ```
 
 ## Build container locally
 
 ```bash
 # Build container
-docker build -t iswai-docs .
+docker build -t docs .
 
 # Run container
-docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai-docs [server|preview|build]
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src docs [server|preview|build]
 ```
 
 ## TODO

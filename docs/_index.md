@@ -1,5 +1,5 @@
 ---
-title: iswai-docs
+title: docs-sdk
 description: Description.
 ---
 
