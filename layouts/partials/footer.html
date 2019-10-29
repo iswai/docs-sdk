@@ -1,28 +1,9 @@
 <footer class="app-footer bg-dark p-3">
     <div class="container">
-        <ul class="nav">
-            {{ if site.Params.current }}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ "current/" | absURL }}">
-                    Currently v{{ site.Params.current }}
-                </a>
-            </li>
-            {{ end }}
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/blob/master/LICENSE.md">
-                    Code license MIT
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://creativecommons.org/licenses/by/4.0/">
-                    Docs license Creative Commons (CC BY 4.0)
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}">
-                    GitHub
-                </a>
-            </li>
-        </ul>
+        <p class="text-center">
+            &copy; 2019 <a href="https://www.elt.ink/"> Geert Eltink</a>  |
+            Code released under <a href="https://github.com/iswai/.github/blob/master/LICENSE.md">MIT License</a>. |
+            Documentation distributed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+        </p>
     </div>
 </footer>

@@ -20,11 +20,11 @@ and notes on development.
 ## Documentation
 
 Documentation, included in this repo in the [docs](https://github.com/iswai/docs-sdk/tree/master/docs) directory, is
-built with [Hugo](https://iswai.github.io/iswai-docs/) and publicly hosted on GitHub Pages at
+built with [iswai/docs-sdk](https://iswai.github.io/docs-sdk/) and publicly hosted on GitHub Pages at
 <https://iswai.github.io/docs-sdk/>.
 
 ## Copyright and license
 
-© 2019 The ISWAI Authors |
+© 2019 [Geert Eltink](https://www.elt.ink/) |
 Code released under [MIT License](https://github.com/iswai/docs-sdk/blob/master/LICENSE.md). |
 Documentation distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
