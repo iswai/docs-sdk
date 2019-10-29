@@ -45,7 +45,7 @@ if [ "$1" == 'server' ]; then
     info "Hugo configuration..."
     hugo config --environment production
 
-    info "Starting production server"
+    info "Starting production server..."
     hugo server --environment production --bind 0.0.0.0 --baseURL http://localhost:1313/
     exit 0
 fi
