@@ -1,8 +1,10 @@
 baseURL: http://localhost:1313/
-title: default-iswai-project
+title: iswai
 
 defaultContentLanguage: en
 languageCode: en-us
+
+googleAnalytics: UA-151173516-1
 
 contentDir: docs
 enableGitInfo: true
