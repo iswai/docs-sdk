@@ -6,5 +6,5 @@ and publicly hosted on GitHub Pages at <https://iswai.github.io/>.
 ## Copyright and license
 
 © 2019 [Geert Eltink](https://www.elt.ink/) |
-Code released under [MIT License](https://github.com/iswai/docs-sdk/blob/master/LICENSE.md). |
+Code released under [MIT License](https://github.com/iswai/.github/blob/master/LICENSE.md). |
 Documentation distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
