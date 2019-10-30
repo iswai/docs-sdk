@@ -1,0 +1,12 @@
+name: 'iswai docs sdk'
+description: 'Generate project docs'
+inputs:
+  command:
+    description: 'The command to run'
+    required: true
+    default: 'build'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
