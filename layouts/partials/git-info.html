@@ -1,5 +1,5 @@
-<div class="text-secondary mt-5">
-    <a href="{{ .Permalink }}" class="hide-child link primary-color">
+<div class="mt-5">
+    <a href="{{ .Permalink }}">
         “{{ .Title }}”
     </a> was last updated on {{ .Lastmod.Format "January 2, 2006" }}{{ if .GitInfo }}:
     <a href="https://github.com/{{ site.Params.organization }}/{{ site.Params.project }}/commit/{{ .GitInfo.Hash }}/">
