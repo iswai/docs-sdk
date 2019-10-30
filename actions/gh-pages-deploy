@@ -52,7 +52,7 @@ git clean -fxd
 
 print_info "Copying new files"
 cd $WORKING_DIR
-cp -r ${PUBLISH_DIR}/* /tmp/deploy
+cp -r ${PUBLISH_DIR}/. /tmp/deploy
 cd /tmp/deploy
 git add --all
 
