@@ -15,17 +15,17 @@ a new issue.
 
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/iswai/.github/blob/master/CONTRIBUTING).
+Please read through our [contributing guidelines](https://github.com/iswai/.github/blob/master/CONTRIBUTING.md#contributing).
 Included are directions for submitting pull requests, coding standards, and notes on development.
 
 ## Documentation
 
-Documentation, included in this repo in the [docs](./tree/master/docs) directory, is
+Documentation, included in this repo in the [docs](./docs) directory, is
 built with [iswai/docs-sdk](https://iswai.github.io/docs-sdk/) and publicly hosted on GitHub Pages at
 <https://iswai.github.io/>.
 
 ## Copyright and license
 
 © 2019 [Geert Eltink](https://www.elt.ink/) |
-Code released under [MIT License](./blob/master/LICENSE.md). |
+Code released under [MIT License](https://github.com/iswai/.github/blob/master/LICENSE.md). |
 Documentation distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
