@@ -14,6 +14,10 @@ jobs:
       uses: actions/checkout@master
 
     - name: Build
+      #uses: docker://iswai/docs:latest
+      #uses: docker://docker.pkg.github.com/iswai/docs-sdk/hugo:latest
+      #with:
+      #  args: 'build'
       uses: iswai/docs-sdk@master
       with:
         command: 'build'
