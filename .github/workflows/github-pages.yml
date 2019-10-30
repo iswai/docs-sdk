@@ -13,16 +13,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
+    - name: Prepare
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
+      run: |
+        git remote add pages "https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
+        git worktree add build pages/gh-pages
+
     - name: Build
       uses: iswai/docs-sdk@master
       with:
         command: 'build'
 
     - name: Deploy
-      env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./build
       run: |
-        wget https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/deploy-gh-pages
-        bash ./deploy-gh-pages
+        cd build
+        git add --all
+        git commit --allow-empty -m "docs: deploy from ${GITHUB_SHA}"
+        git push origin gh-pages
