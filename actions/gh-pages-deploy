@@ -37,21 +37,34 @@ fi
 
 print_info "Deploying ${PUBLISH_REPOSITORY} from ${PUBLISH_DIR} to ${PUBLISH_BRANCH}"
 
-cd "${PUBLISH_DIR}"
-#git init
-#git checkout --orphan "${PUBLISH_BRANCH}"
-git config user.name "${GITHUB_ACTOR}"
-git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+WORKING_DIR=$(pwd)
+rm -rf /tmp/deploy
+print_info "Checking out ${PUBLISH_BRANCH}"
+git clone "${REMOTE_REPO}" /tmp/deploy
+cd /tmp/deploy
+git config user.name "iswai-bot"
+git config user.email "57135024+iswai-bot@users.noreply.github.com"
+git checkout "${PUBLISH_BRANCH}"
+
+print_info "Removing old files"
+git rm -rf .
+git clean -fxd
+
+print_info "Copying new files"
+cd $WORKING_DIR
+cp -r ${PUBLISH_DIR}/* /tmp/deploy
+cd /tmp/deploy
 git add --all
+
 if [ -z "$(git status --porcelain)" ]; then
-    print_info "No changes detected"
-    cd ..
+    print_info "No changes detected, skipping deployment"
+    cd $WORKING_DIR
     exit 0
 fi
 
 print_info "Pushing changes to ${PUBLISH_BRANCH}"
 git commit -m "docs: deploy from ${GITHUB_SHA}"
 git push "${REMOTE_REPO}" "${PUBLISH_BRANCH}"
-cd ..
+cd $WORKING_DIR
 
 print_info "${GITHUB_SHA} deployed successfully"
