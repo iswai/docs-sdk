@@ -6,24 +6,16 @@
 #       PUBLISH_REPOSITORY: github_organization/project_name    * optional
 #       PUBLISH_BRANCH: gh-pages                                * optional
 #       PUBLISH_DIR: ./build                                    * optional
-#     run: |
-#       wget https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/deploy-gh-pages
-#       bash ./deploy-gh-pages
+#     run: wget -O - https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/gh-pages-deploy | bash
 #
 set -e
 
 function print_error() {
     echo -e "\e[31mERROR: ${1}\e[m"
-    exit 1
 }
 
 function print_info() {
     echo -e "\e[36mINFO: ${1}\e[m"
-}
-
-function skip() {
-    print_info "No changes detected, skipping deployment"
-    exit 0
 }
 
 PUBLISH_REPOSITORY="${PUBLISH_REPOSITORY:-$GITHUB_REPOSITORY}"
@@ -35,24 +27,31 @@ REMOTE_REPO="https://x-access-token:${TOKEN}@github.com/${PUBLISH_REPOSITORY}.gi
 
 if [ -z "${TOKEN}" ]; then
     print_error "Missing env PERSONAL_ACCESS_TOKEN or GITHUB_TOKEN"
+    exit 1
 fi
 
 if [ -z "${PUBLISH_REPOSITORY}" ]; then
     print_error "Missing env PUBLISH_REPOSITORY or GITHUB_REPOSITORY"
+    exit 1
 fi
 
 print_info "Deploying ${PUBLISH_REPOSITORY} from ${PUBLISH_DIR} to ${PUBLISH_BRANCH}"
 
 cd "${PUBLISH_DIR}"
-git init
-git checkout --orphan "${PUBLISH_BRANCH}"
+#git init
+#git checkout --orphan "${PUBLISH_BRANCH}"
 git config user.name "${GITHUB_ACTOR}"
 git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-git remote add origin "${REMOTE_REPO}"
 git add --all
-git commit -m "docs: deploy from ${GITHUB_SHA}" || skip
-git push origin "${PUBLISH_BRANCH}" --force
-rm -rf .git
+if [ -n "$(git status --porcelain)" ]; then
+    print_info "No changes detected"
+    cd ..
+    exit 0
+fi
+
+print_info "Pushing changes to ${PUBLISH_BRANCH}"
+git commit -m "docs: deploy from ${GITHUB_SHA}"
+git push "${REMOTE_REPO}" "${PUBLISH_BRANCH}"
 cd ..
 
 print_info "${GITHUB_SHA} deployed successfully"

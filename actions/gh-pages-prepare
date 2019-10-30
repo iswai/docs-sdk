@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+#   - name: Prepare
+#     env:
+#       PUBLISH_BRANCH: gh-pages    * optional
+#       PUBLISH_DIR: ./build        * optional
+#     run: wget -O - https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/gh-pages-prepare | bash
+#
+set -e
+
+function print_error() {
+    echo -e "\e[31mERROR: ${1}\e[m"
+    exit 1
+}
+
+function print_info() {
+    echo -e "\e[36mINFO: ${1}\e[m"
+}
+
+PUBLISH_BRANCH="${PUBLISH_BRANCH:-gh-pages}"
+PUBLISH_DIR="${PUBLISH_DIR:-./build}"
+
+print_info "Checking out ${PUBLISH_BRANCH} into ${PUBLISH_DIR}"
+git worktree add "${PUBLISH_DIR}" "${PUBLISH_BRANCH}"

@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Prepare
-      run: git worktree add build gh-pages
+      run: wget -O - https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/gh-pages-prepare | bash
 
     - name: Build
       uses: iswai/docs-sdk@master
@@ -23,11 +23,5 @@ jobs:
 
     - name: Deploy
       env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
-      run: |
-        cd build
-        git config user.name "${GITHUB_ACTOR}"
-        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-        git add --all
-        test -z "$(git status --porcelain)" || git commit -m "docs: deploy from ${GITHUB_SHA}"
-        git push "https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git" gh-pages
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.YOUR_SECRET_PAT }}   * required
+      run: wget -O - https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/gh-pages-deploy | bash
