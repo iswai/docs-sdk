@@ -8,7 +8,10 @@
   flex: 1;
 }
 
-.app-footer,
+.app-footer {
+  color: $gray-500;
+}
+
 .app-footer a {
   color: $light;
 }
