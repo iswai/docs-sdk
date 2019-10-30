@@ -14,31 +14,18 @@ jobs:
       uses: actions/checkout@master
 
     - name: Prepare
-      env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
-      run: |
-        git remote add pages "https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git"
-        git worktree add -B gh-pages build pages/gh-pages
+      run: git worktree add build gh-pages
 
     - name: Build
-      #uses: docker://iswai/docs:latest
-      #uses: docker://docker.pkg.github.com/iswai/docs-sdk/hugo:latest
-      #with:
-      #  args: 'build'
       uses: iswai/docs-sdk@master
       with:
         command: 'build'
 
     - name: Deploy
-      #env:
-      #  PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
-      #  PUBLISH_BRANCH: gh-pages
-      #  PUBLISH_DIR: ./build
-      #run: |
-      #  wget https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/deploy-gh-pages
-      #  bash ./deploy-gh-pages
+      env:
+        PERSONAL_ACCESS_TOKEN: ${{ secrets.ISWAI_BOT }}
       run: |
         cd build
         git add --all
-        git status --porcelain || git commit -m "docs: deploy from ${GITHUB_SHA}"
-        git push pages gh-pages
+        test -z "$(git status --porcelain)" || git commit -m "docs: deploy from ${GITHUB_SHA}"
+        git push "https://x-access-token:${PERSONAL_ACCESS_TOKEN}@github.com/${PUBLISH_REPOSITORY}.git" gh-pages
