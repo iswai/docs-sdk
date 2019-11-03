@@ -19,5 +19,5 @@ to help avoid any wasted or duplicate effort.
 
 ## Copyright and license
 
-Code released under [MIT License](https://github.com/iswai/.github/blob/master/LICENSE.md). |
+Code released under the [MIT License](https://github.com/iswai/.github/blob/master/LICENSE.md).
 Documentation distributed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
