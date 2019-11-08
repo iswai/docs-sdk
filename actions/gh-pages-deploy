@@ -6,7 +6,7 @@
 #       PUBLISH_REPOSITORY: github_organization/project_name    * optional
 #       PUBLISH_BRANCH: gh-pages                                * optional
 #       PUBLISH_DIR: ./build                                    * optional
-#     run: wget -O - https://raw.githubusercontent.com/iswai/docs-sdk/master/actions/gh-pages-deploy | bash
+#     run: wget -O - https://raw.githubusercontent.com/xtreamwayz/docs-sdk/master/actions/gh-pages-deploy | bash
 #
 set -e
 
@@ -42,8 +42,8 @@ rm -rf /tmp/deploy
 print_info "Checking out ${PUBLISH_BRANCH}"
 git clone "${REMOTE_REPO}" /tmp/deploy
 cd /tmp/deploy
-git config user.name "iswai-bot"
-git config user.email "57135024+iswai-bot@users.noreply.github.com"
+git config user.name "xtreamwayz-bot"
+git config user.email "57135024+xtreamwayz-bot@users.noreply.github.com"
 git checkout "${PUBLISH_BRANCH}"
 
 print_info "Removing old files"

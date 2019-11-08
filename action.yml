@@ -1,4 +1,4 @@
-name: 'iswai docs sdk'
+name: 'xtreamwayz docs sdk'
 description: 'Generate project docs'
 inputs:
   command:

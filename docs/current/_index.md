@@ -4,20 +4,20 @@ version: "1.0"
 ---
 
 This project consists of a collection of tools to generate the documentation
-for the ISWAI organization. It's very opinionated and contains hugo templates
+for the XTREAMWAYZ organization. It's very opinionated and contains hugo templates
 and css files as we like them.
 
 ## Preview documentation
 
 ```bash
 # Build documentation into ./build
-docker run --rm -it -v ${PWD}:/src iswai/docs build
+docker run --rm -it -v ${PWD}:/src xtreamwayz/docs build
 
 # Preview documentation at http:/localhost:1313/
-docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai/docs server
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src xtreamwayz/docs server
 
 # Preview documentation at http:/localhost:1313/ (including draft and future content)
-docker run --rm -it -p 1313:1313 -v ${PWD}:/src iswai/docs preview
+docker run --rm -it -p 1313:1313 -v ${PWD}:/src xtreamwayz/docs preview
 ```
 
 ## Build container locally

@@ -1,17 +1,17 @@
 {
   "name": "docs-sdk",
   "version": "1.0.0",
-  "description": "A development kit for generating docs for the ISWAI organization",
+  "description": "A development kit for generating docs for the XTREAMWAYZ organization",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iswai/docs-sdk.git"
+    "url": "git+https://github.com/xtreamwayz/docs-sdk.git"
   },
   "author": "Geert Eltink (https://www.elt.ink/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iswai/docs-sdk/issues"
+    "url": "https://github.com/xtreamwayz/docs-sdk/issues"
   },
-  "homepage": "https://github.com/iswai/docs-sdk#readme",
+  "homepage": "https://github.com/xtreamwayz/docs-sdk#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@fullhuman/postcss-purgecss": "^1.3.0",
