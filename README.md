@@ -1,4 +1,10 @@
-# docs-sdk
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+Thank you so much for being interested in this project! Open Source is rewarding, but it can also be exhausting. Therefor this code is provided as-is, and is currently not actively maintained. We invite you to peruse the code and even use it in your next project, provided you follow the included license!
+
+No guarantee of support for the code is provided, and there is no promise that pull requests will be reviewed or merged. It’s open source, so forking is allowed; just be sure to give credit where it’s due!
+
+---
 
 This project consists of a collection of tools to generate the documentation for the XTREAMWAYZ
 organization. It's very opinionated and contains hugo templates and css files as we like them.
